@@ -9,7 +9,6 @@ function Pomodoro() {
   // Timer starts out paused
   const [isTimerRunning, setIsTimerRunning] = useState(false);
 
-  // set up focus/ break duration
   const [focusDuration, setFocusDuration] = useState(25); // in minute
   const [breakDuration, setBreakDuration] = useState(5); //in minute
 
@@ -76,17 +75,32 @@ function Pomodoro() {
     <div className="pomodoro">
       <div className="row">
         <div className="col">
-          <DurationFocus />
+          <DurationFocus
+            focusDuration={focusDuration}
+            handleFocusDecrement={handleFocusDecrement}
+            handleFocusIncrement={handleFocusIncrement}
+            isSessionActive={isSessionActive}
+          />
         </div>
         <div className="col">
           <div className="float-right">
-            <DurationBreak />
+            <DurationBreak
+              breakDuration={breakDuration}
+              handleBreakDecrement={handleBreakDecrement}
+              handleBreakIncrement={handleBreakIncrement}
+              isSessionActive={isSessionActive}
+            />
           </div>
         </div>
       </div>
       <div className="row">
         <div className="col">
-          <TimeControl />
+          <TimeControl
+            playPause={playPause}
+            isTimerRunning={isTimerRunning}
+            handleStopButton={handleStopButton}
+            isSessionActive={isSessionActive}
+          />
         </div>
       </div>
       <ProgressBar />
