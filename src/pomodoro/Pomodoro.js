@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import classNames from "../utils/class-names";
 import useInterval from "../utils/useInterval";
 import DurationBreak from "./DurationBreak";
 import DurationFocus from "./DurationFocus";
 import TimeControl from "./TimeControl";
+import Progress from "./Progress";
+import ToDo from "./ToDo";
 
 function Pomodoro() {
   // Timer starts out paused
@@ -62,12 +63,33 @@ function Pomodoro() {
 
   useInterval(
     () => {
-      // ToDo: Implement what should happen when the timer is running
+      if (timer === 0) {
+        new Audio("https://bigsoundbank.com/UPLOAD/mp3/1482.mp3").play();
+
+        const newTime =
+          currentState === "focus" ? breakDuration : focusDuration;
+
+        // set up breakDuration / focusDuration in second
+        setTimer(newTime * 60);
+
+        // switching session focus /  Break
+        setCurrentState((prevState) =>
+          prevState === "focus" ? "break" : "focus"
+        );
+        return;
+      }
+      setTimer((currentTime) => currentTime - 1);
     },
     isTimerRunning ? 1000 : null
   );
 
   function playPause() {
+    if (!isSessionActive) {
+      setIsSessionActive(true);
+      setTimer(focusDuration * 60);
+    }
+    setIsSessionPause((prevState) => !prevState);
+
     setIsTimerRunning((prevState) => !prevState);
   }
 
@@ -121,3 +143,4 @@ function Pomodoro() {
 }
 
 export default Pomodoro;
+
