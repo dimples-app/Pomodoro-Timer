@@ -103,7 +103,14 @@ function Pomodoro() {
           />
         </div>
       </div>
-      <ProgressBar />
+      <Progress
+        currentState={currentState}
+        timer={timer}
+        isSessionActive={isSessionActive}
+        focusDuration={focusDuration}
+        breakDuration={breakDuration}
+        isSessionPause={isSessionPause}
+      />
       <div className="row">
         <div className="col">
           <ToDo />
