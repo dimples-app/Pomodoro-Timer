@@ -1,4 +1,5 @@
 import React from "react";
+import { minutesToDuration } from "../utils/duration";
 /**
  * function/ comp for focus duration
  * @param {*} props 
