@@ -5,7 +5,10 @@ import DurationFocus from "./DurationFocus";
 import TimeControl from "./TimeControl";
 import Progress from "./Progress";
 import ToDo from "./ToDo";
-
+/**
+ * 
+ * @returns function for Pomodoro
+ */
 function Pomodoro() {
   // Timer starts out paused
   const [isTimerRunning, setIsTimerRunning] = useState(false);

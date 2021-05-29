@@ -1,7 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { minutesToDuration } from "../utils/duration";
-
+/**
+ * function/ comp for break duration
+ * @param {*} props 
+ * @returns 
+ */
 function DurationBreak(props) {
   const {
     breakDuration,

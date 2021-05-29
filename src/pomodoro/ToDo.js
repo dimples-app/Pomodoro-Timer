@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-
+/**
+ * function for todo
+ * @param {*} param0 
+ * @returns 
+ */
 function Task({ task, index, completeTask, removeTask }) {
   return (
     <div

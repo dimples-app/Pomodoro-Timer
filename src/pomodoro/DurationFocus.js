@@ -1,5 +1,9 @@
 import React from "react";
-
+/**
+ * function/ comp for focus duration
+ * @param {*} props 
+ * @returns 
+ */
 function DurationFocus(props) {
   const {
     focusDuration,

@@ -1,6 +1,10 @@
 import React from "react";
 import { minutesToDuration, secondsToDuration } from "../utils/duration";
-
+/**
+ * comp for progress bar
+ * @param {*} props 
+ * @returns 
+ */
 function Progress(props) {
   const {
     currentState,
